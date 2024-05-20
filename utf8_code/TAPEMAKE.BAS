@@ -1,0 +1,163 @@
+   10 DIM O(1,20),SONG$(1,20,1),MN(1,20),SEC(1,20),HOLD$(1,20,1),TN$(1)
+   20 CLS
+   30 PRINT"For making tapes."
+   36 INPUT"Stored prior to 2/95 <Y>";D$
+   38 IF D$ ="Y" THEN D=15 :ELSE D=20
+   40 INPUT"Is this to 1-input songs  2-print lable  3-save list  4-print tape list 5-load   an old list 6-quit";Q
+   50 ON Q GOTO 65, 360, 550, 650, 60, 700
+   60 GOSUB 800 : GOTO 40
+   65 SN=0:SNT=0
+   70 INPUT"Is this a new list";Y$
+   80 IF Y$="n" OR Y$="N" THEN GOSUB 800
+   84 INPUT"Side A (0) or Side B (1)";S
+   85 CLS
+   86 IF S=0 THEN SN=SN+1
+   88 IF S=1 THEN SNT=SNT+1
+   90 IF S=0 THEN N=SN :ELSE N=SNT
+   98 LOCATE 16,1
+  100 PRINT"Enter <END> to exit."
+  108 LOCATE 17,1 : PRINT"                                                      ": LOCATE 17,1
+  110 INPUT"Song title";SONG$(S,N,0)
+  115 IF SONG$(S,N,0)="end" OR SONG$(S,N,0)="END" THEN GOTO 220
+  118 LOCATE 18,1 : PRINT"                                                      ": LOCATE 18,1
+  120 INPUT"Album";SONG$(S,N,1)
+  128 LOCATE 19,1 : PRINT"                                                      ": LOCATE 19,1
+  130 INPUT"Time (min.,sec.)";MN(S,N),SEC(S,N)
+  140 MN(S,0)=MN(S,0)+MN(S,N)
+  150 SEC(S,0)=SEC(S,0)+SEC(S,N)
+  160 IF SEC(S,0)<60 THEN GOTO 200
+  170 MN(S,0)= MN(S,0)+1
+  180 SEC(S,0)=SEC(S,0)-60
+  190 LOCATE 20,1
+  200 PRINT"Total Time";MN(S,0);":";SEC(S,0)
+  205 LOCATE N,1 : PRINT N; SONG$(S,N,0)
+  210 GOTO 86
+  220 IF S=0 THEN SONG$(S,N,0)="":SN=SN-1
+  221 IF S=1 THEN GOTO 225
+  222 INPUT"Name for side 1";TN$(0)
+  224 IF S=0 THEN GOTO 230
+  225 IF S=1 THEN SONG$(S,N,0)="":SNT=SNT-1
+  227 INPUT"Name for side 2";TN$(1)
+  230 INPUT"Do you want to put these in order";Y$
+  240 IF Y$="n" OR Y$="N" THEN GOTO 1700
+  250 CLS
+  260 IF S=0 THEN GOTO 288
+  262 GOSUB 1300
+  265 FOR X=1 TO SNT
+  268 LOCATE  12,1
+  270 PRINT "Order # for Song #";X;
+  280 INPUT O(1,X)
+  285 GOSUB 1000: NEXT X:GOSUB 1050:GOSUB 1100
+  286 GOTO 40
+  288 GOSUB 1300
+  290 FOR X= 1 TO SN
+  295 LOCATE 12,1
+  300 PRINT"Order # for song#";X;
+  310 INPUT O(0,X)
+  320 GOSUB 1000:NEXT X
+  325 GOSUB 1050:GOSUB 1100
+  330 CLS
+  335 INPUT"Do you want to do another side (Y or N)";Y$
+  340 IF Y$="y" OR Y$="Y" THEN GOTO 84
+  345 GOTO 40
+  348 CLS
+  360 REM:lable prt
+  370 GOSUB 1500
+  380 LPRINT"SIDE A"; TAB(25)"SIDE B"
+  390 LPRINT CHR$(27);CHR$(38);CHR$(107);CHR$(50);CHR$(83);
+  400 FOR X=1 TO 12
+  410 LPRINT SONG$(0,X,0);TAB(40) SONG$(1,X,0)
+  470 NEXT X
+  480 LPRINT"__________________________________________________________________"
+  490 LPRINT CHR$(27);CHR$(38);CHR$(107);CHR$(48);CHR$(83);
+  510 LPRINT TN$(0):LPRINT TN$(1)
+  530 LPRINT"_______________________________________"
+  535 LPRINT CHR$(27);CHR$(38);CHR$(108);CHR$(48);CHR$(72)
+  540 GOTO 40
+  550 INPUT"File name";FI$
+  560 OPEN"o",1,FI$
+  570 PRINT#1,TN$(0);",";TN$(1)
+  580 FOR X=1 TO D
+  585 FOR Z=0 TO 1
+  590 PRINT#1,O(Z,X);",";SONG$(Z,X,0);",";SONG$(Z,X,1);",";MN(Z,X);",";SEC(Z,X)
+  600 NEXT Z
+  605 NEXT X
+  610 CLOSE
+  620 GOTO 40
+  650 PRINT"Make sure printer is ready"
+  660 LPRINT"Taping list"
+  664 FOR Z=0 TO 1
+  666 LPRINT "Side ";Z+1
+  670 FOR X= 1 TO D
+  680 LPRINT X;SONG$(Z,X,0);" -- ";SONG$(Z,X,1)
+  690 NEXT X
+  694 NEXT Z
+  695 GOTO 40
+  700 SYSTEM:END
+  800 INPUT"File name";FI$
+  810 OPEN"I",1,FI$
+  820 INPUT#1,TN$(0),TN$(1)
+  830 FOR X=1 TO D
+  835 FOR Z=0 TO 1
+  840 INPUT#1,O(Z,X),SONG$(Z,X,0),SONG$(Z,X,1),MN(Z,X),SEC(Z,X)
+  845 NEXT Z
+  850 NEXT X
+  860 CLOSE
+  870 RETURN
+ 1000 IF O(S,X)>11 THEN C=40 :ELSE C=1
+ 1005 IF X<10 THEN XX=X :ELSE XX=X-10
+ 1010 LOCATE O(S,X),C
+ 1020 PRINT O(S,X);SONG$(S,X,0)
+ 1030 RETURN
+ 1050 LOCATE 12,1: INPUT"O.K. as is or re-order entire list <Y or N>";Y$
+ 1060 IF S=0 AND Y$="N" THEN GOTO 290
+ 1065 IF S=0 AND Y$="n" THEN GOTO 290
+ 1070 IF S=1 AND Y$="n" THEN GOTO 262
+ 1075 IF S=1 AND Y$="N" THEN GOTO 262
+ 1080 RETURN
+ 1100 IF S=0 THEN N=SN :ELSE N=SNT
+ 1110 FOR H=1 TO N
+ 1120 FOR X=1 TO N
+ 1130 IF O(S,X)=H THEN HOLD$(S,H,0)= SONG$(S,X,0)
+ 1140 IF O(S,X)=H THEN HOLD$(S,H,1)= SONG$(S,X,1)
+ 1150 NEXT X
+ 1160 NEXT H
+ 1170 FOR M=1 TO N
+ 1180 FOR Y= 0 TO 1
+ 1190 SONG$(S,M,Y)=HOLD$(S,M,Y)
+ 1200 NEXT Y:NEXT M
+ 1210 RETURN
+ 1220 END
+ 1300 IF S=0 THEN N=SN :ELSE N=SNT
+ 1310 XX=13
+ 1320 FOR X = 1 TO N
+ 1330 XX=XX+1
+ 1340 IF X<10 THEN C=1 :ELSE C=40
+ 1350 IF XX=23 THEN XX=14
+ 1360 LOCATE XX,C
+ 1370 PRINT X;
+ 1385 PRINT SONG$(S,X,0)
+ 1390 NEXT X
+ 1400 RETURN
+ 1500 SGCTO=0:SGCTT=0
+ 1510 FOR X = 1 TO D
+ 1520 IF SONG$(0,X,0) <> "" THEN SGCTO=SGCTO+1
+ 1530 NEXT X
+ 1540 FOR X = 1 TO D
+ 1550 IF SONG$(1,X,0) <> "" THEN SGCTT=SGCTT+1
+ 1560 NEXT X
+ 1570 IF SGCTO > 12 OR SGCTT > 12 THEN GOTO 1590
+ 1580 RETURN
+ 1590 LPRINT "Side A (cont.)"; TAB(22)"Side B (cont.)"
+ 1600 LPRINT" "
+ 1610 LPRINT CHR$(27);CHR$(38);CHR$(107);CHR$(50);CHR$(83);
+ 1620 FOR X = 13 TO D
+ 1630 LPRINT SONG$(0,X,0); TAB(40) SONG$(1,X,0)
+ 1640 NEXT X
+ 1650 LPRINT" ":LPRINT" ":LPRINT" ":LPRINT CHR$(27);CHR$(38);CHR$(107);CHR$(48);CHR$(83);
+ 1660 RETURN
+ 1700 REM: stright ordering
+ 1710 FOR OD = 1 TO N
+ 1720 O(S,OD) = OD
+ 1730 NEXT OD
+ 1740 GOTO 40
