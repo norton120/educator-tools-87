@@ -8,9 +8,35 @@ The program suite includes utilites for grading tests, generating random student
 If you are a `BASIC` enthusiast or have an interest in the period programming, or if you are an educator in the field, this repo is worth a fork and some messing around.
 This is a great example of idea programming (at least in my opinion); automating away the boring, monotonous stuff so all your focus can be on the work you _want_ to do. In this case, less paperwork more teaching 🎓 📖 🧠 🧪!
 
+<img alt="Seating Chart Manager" src="screenshots/seat_chart.png" style="width:40%; display: inline;" />
+<img alt="Seating Chart Manager (detail)" src="screenshots/seat_chart_detail.png" style="width:40%; display:inline;" />
+<img alt="Test Scoring Helper" src="screenshots/test_scorer.png" style="width:40%; display: inline;" />
+<img alt="Cassette Tape Maker" src="screenshots/tape_maker.png" style="width:40%; display:inline;" />
+
+
+## Run in Docker
+Since most of us do not have access to a working 8086 with DOS, the included emulation will come in handy. You can start the emulator with
+
+```bash
+    docker build . -t educator-87 && \
+    docker run -it --rm educator-87
+```
+
+Once the emulator has started, pick a utility program you'd like to try (with the `.BAS` filetype) and follow [these directions](https://github.com/robhagemans/pcbasic?tab=readme-ov-file#basic-survival-kit). For example, if **I wanted to try out the Cassette Tape Maker (`TAPEMAKE.BAS`):**
+
+```bash
+#PC-BASIC 2.0.7
+#(C) Copyright 2013-2023 Rob Hagemans.
+#60300 Bytes free
+#Ok
+LOAD "TAPEMAKE"
+#Ok
+RUN
+```
+
 ### Up Next
 1. ~Encode the current `.bas` files from CP437 to UTF-8 so they can be easily read and modified~
-2. Get these utilities running in a container
+2. ~Get these utilities running in a container~
 3. Write some basic tests (pun intended) and have them running in Github CI for all the world to see
     - it would be great to publish the test outputs along the way (note: `TEST2` may be what we need?)
 4. Write up docs and instructions for the different executables
