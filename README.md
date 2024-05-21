@@ -4,7 +4,7 @@ This is a collection of `BASCIA` utility programs for classroom management writt
 
 The program suite includes utilites for grading tests, generating random student seat assignments, handling attendance and grading on a curve. We have all kinds of tools to do these things today - even a simple spreadsheet will get you pretty far. But 40 years ago this was done, without exception, by hand. **Bonus**: there's a nifty routine for creating labels for your cassette tapes 📼
 
-Because DOS systems used CP437 encoding it is unlikely any of your editors will even be able to open the `.BAS` programming files in the `Program` directory; so I took the liberty of converting all the executables to [modern UTF-8](utf8_code) so you can read them!
+Because BASICA stored source code in tokenized binary form it is unlikely any of your editors will even be able to open the `.BAS` programming files in the `Program` directory; so I took the liberty of converting all the executables to [modern UTF-8](utf8_code) so you can read them!
 
 If you are a `BASIC` enthusiast or have an interest in period programming, or if you are an educator in the field, this repo is worth a fork and some messing around.
 This is a great example of the best kind of software (at least in my opinion); code that automates away boring, monotonous stuff, so your focus can be on the work you _want_ to do. In this case, less paperwork and more teaching 🎓 📖 🧠 🧪!
