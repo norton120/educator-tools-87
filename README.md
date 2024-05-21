@@ -7,12 +7,12 @@ The program suite includes utilites for grading tests, generating random student
 
 If you are a `BASIC` enthusiast or have an interest in the period programming, or if you are an educator in the field, this repo is worth a fork and some messing around.
 This is a great example of idea programming (at least in my opinion); automating away the boring, monotonous stuff so all your focus can be on the work you _want_ to do. In this case, less paperwork more teaching 🎓 📖 🧠 🧪!
-
-<img alt="Seating Chart Manager" src="screenshots/seat_chart.png" style="width:40%; display: inline;" />
-<img alt="Seating Chart Manager (detail)" src="screenshots/seat_chart_detail.png" style="width:40%; display:inline;" />
-<img alt="Test Scoring Helper" src="screenshots/test_scorer.png" style="width:40%; display: inline;" />
-<img alt="Cassette Tape Maker" src="screenshots/tape_maker.png" style="width:40%; display:inline;" />
-
+<p float="left">
+<img alt="Seating Chart Manager" src="screenshots/seat_chart.png" style="width:40%; display: inline; margin:1px;" />
+<img alt="Seating Chart Manager (detail)" src="screenshots/seat_chart_detail.png" style="width:40%; display:inline; margin:1px;" />
+<img alt="Test Scoring Helper" src="screenshots/test_scorer.png" style="width:40%; display: inline; margin:1px;" />
+<img alt="Cassette Tape Maker" src="screenshots/tape_maker.png" style="width:40%; display:inline; margin:1px;" />
+</p>
 
 ## Run in Docker
 Since most of us do not have access to a working 8086 with DOS, the included emulation will come in handy. You can start the emulator with
