@@ -1,12 +1,14 @@
 ## Educator Tool Suite '87
 
-This is a collection of `BASCIA` utility programs for classroom management written by my father, Mike Knox.
-They came from an IBM formatted 3.5mm floppy disk, wich was the backup (labeled as such) - So the July 23, 1987 timestamp on `BASICA.EXE` was likely the backup date, not the modified timestamp for the working files.
+This is a collection of `BASCIA` utility programs for classroom management written by my father, Mike Knox, in the late 1980s. These programs were designed to automate and streamline the clarical work that goes along with teaching 8th grade science - grading tests, assigning seats for classroom and lab, monitoring attendance, grading tests and state Regents exams, and more.
 
-The program suite includes utilites for grading tests, generating random student seat assignments, handling attendance and grading on a curve. Sure we have all kinds of tools to do these things today - but 40 years ago this was done, without exception, by hand. **Bonus**: there's a nifty routine for creating labels for your cassette tapes 📼
+The program suite includes utilites for grading tests, generating random student seat assignments, handling attendance and grading on a curve. We have all kinds of tools to do these things today - even a simple spreadsheet will get you pretty far. But 40 years ago this was done, without exception, by hand. **Bonus**: there's a nifty routine for creating labels for your cassette tapes 📼
 
-If you are a `BASIC` enthusiast or have an interest in the period programming, or if you are an educator in the field, this repo is worth a fork and some messing around.
-This is a great example of idea programming (at least in my opinion); automating away the boring, monotonous stuff so all your focus can be on the work you _want_ to do. In this case, less paperwork more teaching 🎓 📖 🧠 🧪!
+If you are a `BASIC` enthusiast or have an interest in period programming, or if you are an educator in the field, this repo is worth a fork and some messing around.
+This is a great example of the best kind of software (at least in my opinion); code that automates away boring, monotonous stuff, so your focus can be on the work you _want_ to do. In this case, less paperwork and more teaching 🎓 📖 🧠 🧪!
+
+_They came from an IBM formatted 3.5mm floppy disk, wich was the backup (labeled as such) - So the July 23, 1987 timestamp on `BASICA.EXE` was likely the backup date, not the modified timestamp for the working files._
+
 <p float="left">
 <img alt="Seating Chart Manager" src="screenshots/seat_chart.png" style="width:40%; display: inline; margin:1px;" />
 <img alt="Seating Chart Manager (detail)" src="screenshots/seat_chart_detail.png" style="width:40%; display:inline; margin:1px;" />
