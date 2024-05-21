@@ -37,8 +37,8 @@ RUN
 ```
 
 ### Up Next
-1. ~Encode the current `.bas` files from CP437 to UTF-8 so they can be easily read and modified~
-2. ~Get these utilities running in a container~
+1. ~Encode the current `.bas` files from CP437 to UTF-8 so they can be easily read and modified~ ✔️
+2. ~Get these utilities running in a container~ ✔️
 3. Write some basic tests (pun intended) and have them running in Github CI for all the world to see
     - it would be great to publish the test outputs along the way (note: `TEST2` may be what we need?)
 4. Write up docs and instructions for the different executables
