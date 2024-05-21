@@ -1,6 +1,6 @@
 ## Educator Tool Suite '87
 
-This is a collection of `BASCIA` utility programs for classroom management written by my father, Mike Knox, in the late 1980s. These programs were designed to automate and streamline the clarical work that goes along with teaching 8th grade science - grading tests, assigning seats for classroom and lab, monitoring attendance, grading tests and state Regents exams, and more.
+This is a collection of `BASCIA` utility programs for classroom management written by my father, Mike Knox, in the late 1980s. These programs were designed to automate and streamline the clerical work that goes along with teaching 8th grade science - grading tests, assigning seats for classroom and lab, monitoring attendance, grading tests and state Regents exams, and more.
 
 The program suite includes utilites for grading tests, generating random student seat assignments, handling attendance and grading on a curve. We have all kinds of tools to do these things today - even a simple spreadsheet will get you pretty far. But 40 years ago this was done, without exception, by hand. **Bonus**: there's a nifty routine for creating labels for your cassette tapes 📼
 
