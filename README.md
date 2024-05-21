@@ -42,3 +42,5 @@ RUN
 3. Write some basic tests (pun intended) and have them running in Github CI for all the world to see
     - it would be great to publish the test outputs along the way (note: `TEST2` may be what we need?)
 4. Write up docs and instructions for the different executables
+
+**_Note_**: The fault errors you will run into periodically are because the emulator is looking for a floppy disk drive that does not exist (to save or retrieve state). To get these fully operational will most likely require tricking the emulator into mounting a local path as the F drive.
